@@ -1,0 +1,25 @@
+{
+  "name": "middle.messenger.praktikum.yandex",
+  "version": "1.0.0",
+  "description": "Chat application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxim-dmi3ev/middle.messenger.praktikum.yandex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxim-dmi3ev/middle.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/maxim-dmi3ev/middle.messenger.praktikum.yandex#readme",
+  "devDependencies": {
+    "parcel": "^2.4.1"
+  }
+}
