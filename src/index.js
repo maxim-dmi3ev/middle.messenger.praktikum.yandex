@@ -1,1 +1,4 @@
-console.log(123);
+import "./style.styl";
+import templateFunction from "./test.hbs";
+
+document.body.innerHTML = templateFunction({name: "World"});

@@ -1,12 +1,18 @@
 {
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
-  "description": "Chat application",
-  "main": "index.js",
+  "description": "Chat App",
+  "engines": {
+    "node": ">= 16.14.0"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "source": "static/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "parcel static/index.html",
+    "build": "parcel build static/index.html"
   },
   "repository": {
     "type": "git",
@@ -20,6 +26,8 @@
   },
   "homepage": "https://github.com/maxim-dmi3ev/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
-    "parcel": "^2.4.1"
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "stylus": "^0.57.0"
   }
 }
