@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Chat App",
   "engines": {
-    "node": ">= 16.14.0"
+    "node": ">= 12.22.12"
   },
   "browserslist": [
     "defaults"
@@ -11,9 +11,9 @@
   "source": "static/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel static/index.html -p 3000",
-    "build": "parcel build static/index.html",
-    "start": "node server.js",
+    "dev": "parcel static/index.html -p 3000 --no-cache",
+    "build": "parcel build static/index.html --no-cache --no-minify",
+    "start": "npm run build && node server.js",
     "prettier": "prettier --write ."
   },
   "repository": {
@@ -28,12 +28,13 @@
   },
   "homepage": "https://github.com/maxim-dmi3ev/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
-    "parcel-bundler": "^1.12.5",
-    "parcel-plugin-handlebars-precompile": "^1.0.2",
-    "prettier": "^2.6.2",
-    "stylus": "^0.57.0"
+    "handlebars": "4.7.7",
+    "parcel-bundler": "1.12.5",
+    "parcel-plugin-handlebars-precompile": "1.0.2",
+    "prettier": "2.6.2",
+    "stylus": "0.57.0"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "4.17.3"
   }
 }
