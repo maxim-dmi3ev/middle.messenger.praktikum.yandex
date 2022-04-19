@@ -12,14 +12,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel static/index.html",
-    "build": "parcel build static/index.html"
+    "build": "parcel build static/index.html",
+    "prettier": "prettier --write ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maxim-dmi3ev/middle.messenger.praktikum.yandex.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Maxim Dmitriev",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/maxim-dmi3ev/middle.messenger.praktikum.yandex/issues"
@@ -28,6 +29,7 @@
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "prettier": "^2.6.2",
     "stylus": "^0.57.0"
   }
 }

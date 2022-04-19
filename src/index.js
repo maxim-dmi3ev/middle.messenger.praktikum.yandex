@@ -8,21 +8,19 @@ import { Component } from "./utils/Component";
 import "./styles";
 
 const routes = {
-    "/authorization": AuthorizationPage,
-    "/registration": RegistrationPage,
-    "/chat": ChatPage,
-    "/profile": ProfilePage,
-    "/404": NotFoundErrorPage,
-    "/500": ServerErrorPage,
+  "/authorization": AuthorizationPage,
+  "/registration": RegistrationPage,
+  "/chat": ChatPage,
+  "/profile": ProfilePage,
+  "/404": NotFoundErrorPage,
+  "/500": ServerErrorPage,
 };
 
 const initApp = () => {
-    const { pathname } = location;
-    const currentRoute = routes[pathname.toLowerCase()] || NotFoundErrorPage;
+  const { pathname } = location;
+  const currentRoute = routes[pathname.toLowerCase()] || NotFoundErrorPage;
 
-    document
-        .getElementById("app")
-        .innerHTML = Component.create(currentRoute);
+  document.getElementById("app").innerHTML = Component.create(currentRoute);
 };
 
 initApp();
