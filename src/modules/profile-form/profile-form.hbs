@@ -1,0 +1,21 @@
+<div class="profile-form">
+    <div>
+        {{#each fields}}
+            <div class="profile-form__field">
+                <div class="profile-form__field-name">{{this.name}}</div>
+                <div class="profile-form__field-value">{{this.value}}</div>
+            </div>
+        {{/each}}
+    </div>
+    <div class="profile-form__actions">
+        <div class="profile-form__action">
+            {{{dataChangeAction}}}
+        </div>
+        <div class="profile-form__action">
+            {{{passwordChangeAction}}}
+        </div>
+        <div class="profile-form__action">
+            {{{exitAction}}}
+        </div>
+    </div>
+</div>

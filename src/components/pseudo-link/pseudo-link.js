@@ -4,7 +4,8 @@ import "./pseudo-link.styl";
 
 export class PseudoLink extends Component {
     render() {
-        const { text = "" } = this.props;
-        return tmplFunc({ text });
+        const { text = "", type = "prime", } = this.props;
+        const classNames = `${"pseudo-link_" + type}`;
+        return tmplFunc({ text, classNames });
     }
 }

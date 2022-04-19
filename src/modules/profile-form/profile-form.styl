@@ -1,0 +1,39 @@
+@import "../../styles/colors.styl";
+
+.profile-form {
+  width: 460px;
+
+  &__field {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px 5px 5px;
+    border-bottom: 1px solid $border-default;
+  }
+
+  &__field + &__field {
+    margin-top: 20px;
+  }
+
+  &__field-name {
+    width: 50%;
+    font-size: 14px;
+    color: $text-default;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  &__field-value {
+    width: 50%;
+    font-size: 14px;
+    color: $text-default;
+    text-align: right;
+  }
+
+  &__actions {
+    margin-top: 50px;
+  }
+
+  &__action + &__action {
+    margin-top: 20px;
+  }
+}

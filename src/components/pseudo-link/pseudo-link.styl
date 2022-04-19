@@ -6,7 +6,6 @@
   border: none;
   outline: none;
   background: none;
-  color: $text-prime;
   cursor: pointer;
 
   &:active, &:focus, &:hover {
@@ -14,7 +13,14 @@
   }
 
   &:hover {
-    color: $background-prime-bright;
     text-decoration: underline;
+  }
+
+  &_prime {
+    color: $text-prime;
+  }
+
+  &_danger {
+    color: $error-color;
   }
 }

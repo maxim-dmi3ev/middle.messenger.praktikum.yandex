@@ -1,0 +1,47 @@
+@import "../../styles/colors.styl";
+
+.profile-photo {
+  &__image {
+    position: relative;
+    width: 151px;
+    height: 151px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__image-action {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .7);
+    font-size: 16px;
+    text-align: center;
+    color: $text-default;
+    opacity: 0;
+    transition: .2s ease opacity;
+  }
+
+  &__image:hover .profile-photo__image-action {
+    opacity: 1;
+  }
+
+  &__caption {
+    margin-top: 20px;
+    font-size: 18px;
+    color: $text-default;
+    text-align: center;
+    letter-spacing: .5px;
+  }
+}
