@@ -1,4 +1,24 @@
-import "./style.styl";
-import templateFunction from "./test.hbs";
+import { AuthorizationPage } from "./pages/authorization-page";
+import { RegistrationPage } from "./pages/registration-page";
+import { NotFoundErrorPage } from "./pages/not-found-error-page";
+import { ServerErrorPage } from "./pages/server-error-page";
+import { Component } from "./utils/Component";
+import "./styles";
 
-document.body.innerHTML = templateFunction({name: "World"});
+const routes = {
+    "/authorization": AuthorizationPage,
+    "/registration": RegistrationPage,
+    "/404": NotFoundErrorPage,
+    "/500": ServerErrorPage,
+};
+
+const initApp = () => {
+    const { pathname } = location;
+    const currentRoute = routes[pathname.toLowerCase()] || NotFoundErrorPage;
+
+    document
+        .getElementById("app")
+        .innerHTML = Component.create(currentRoute);
+};
+
+initApp();

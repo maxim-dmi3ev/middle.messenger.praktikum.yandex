@@ -1,0 +1,20 @@
+@import "../../styles/colors.styl";
+
+.pseudo-link {
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  background: none;
+  color: $text-prime;
+  cursor: pointer;
+
+  &:active, &:focus, &:hover {
+    outline: none;
+  }
+
+  &:hover {
+    color: $background-prime-bright;
+    text-decoration: underline;
+  }
+}
