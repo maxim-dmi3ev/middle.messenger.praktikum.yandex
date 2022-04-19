@@ -29,3 +29,4 @@ That's it. App should be running locally on port 3000.
 - [Deployed version on Netlify](https://shimmering-chaja-2e2182.netlify.app/)
 
 ## Pull Requests:
+- [Sprint 1](https://github.com/maxim-dmi3ev/middle.messenger.praktikum.yandex/pull/1)
