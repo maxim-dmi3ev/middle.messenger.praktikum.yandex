@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.use("/assets", express.static("dist"));
+app.use(express.static("dist"));
 
 const indexHtml = fs.readFileSync(path.resolve(__dirname, "dist/index.html"));
 app.get("/*", (req, res) => {
