@@ -1,0 +1,37 @@
+@import "../../styles/colors.styl";
+
+.input {
+  display: flex;
+  flex-direction: column;
+
+  &__label + &__field {
+    margin-top: 5px;
+  }
+
+  &__label {
+    color: $text-prime;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &__field {
+    padding: 5px 0;
+    color: $text-default;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid $border-default;
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+
+    &:focus {
+      border-color: $border-prime;
+    }
+
+    &_invalid {
+      border-color: $error-color;
+    }
+  }
+}

@@ -11,9 +11,7 @@
 1. Clone the repository
 2. Install dependencies. Run in the root folder:
 `npm install`
-3. Build project:
-`npm run build`
-4. Run node server:
+3. Run build & node server:
 `npm run start`
   
 That's it. App should be running locally on port 3000. 
@@ -23,6 +21,14 @@ That's it. App should be running locally on port 3000.
 - `npm run dev` — starts application in dev mode;
 - `npm run test` — starts tests (not implemented yet);
 - `npm run prettier` — starts prettier;
+
+## App routes:
+- Page with lists of chats `/chat`
+- Authorization page `/authorization`
+- Registration page `/registration`
+- Profile page `/profile`
+- 404 error page `/404`
+- 500 error page `/500`
 
 ## Useful links:
 - [Figma prototype](https://www.figma.com/file/qSOTTp0dwf3wNYLAVJI04B/Chat?node-id=0%3A1)

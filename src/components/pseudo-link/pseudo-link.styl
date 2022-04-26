@@ -1,0 +1,26 @@
+@import "../../styles/colors.styl";
+
+.pseudo-link {
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+
+  &:active, &:focus, &:hover {
+    outline: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &_prime {
+    color: $text-prime;
+  }
+
+  &_danger {
+    color: $error-color;
+  }
+}

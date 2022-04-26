@@ -1,0 +1,18 @@
+<div class="initial-form">
+  <header class="initial-form__header">Вход</header>
+  <main class="initial-form__main">
+    {{#each inputs}}
+      <div class="initial-form__field">
+        {{{this}}}
+      </div>
+    {{/each}}
+  </main>
+  <footer class="initial-form__footer">
+    <div class="initial-form__action">
+      {{{mainButton}}}
+    </div>
+    <div class="initial-form__action">
+      {{{secondaryButton}}}
+    </div>
+  </footer>
+</div>
