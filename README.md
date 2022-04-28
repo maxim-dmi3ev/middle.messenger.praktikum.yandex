@@ -22,6 +22,7 @@ That's it. App should be running locally on port 3000.
 - `npm run test` — starts tests (not implemented yet);
 - `npm run start:server` — starts node.js server;
 - `npm run prettier` — starts prettier;
+- `npm run typecheck` — starts TS type check;
 
 ## App routes:
 - Page with lists of chats `/chat`
