@@ -18,9 +18,15 @@ const routes = {
 
 const initApp = () => {
   const pageRoute = location.pathname.toLowerCase();
-  const currentRoute = pageRoute === "/" ? ChatPage : routes[pageRoute] || NotFoundErrorPage;
+  const currentRoute =
+    pageRoute === "/"
+      ? ChatPage
+      : routes[pageRoute as keyof typeof routes] || NotFoundErrorPage;
 
-  document.getElementById("app").innerHTML = Component.create(currentRoute);
+  const rootEl = document.getElementById("app");
+  if (rootEl) {
+    rootEl.innerHTML = Component.create(currentRoute, {});
+  }
 };
 
 initApp();

@@ -1,7 +1,7 @@
 import { Component } from "../../utils/Component";
 import tmplFunc from "./profile-page.hbs";
 import { BaseLayout } from "../../layout/base-layout";
-import { ProfilePhoto } from "../../modules/profile-photo/profile-photo";
+import { ProfilePhoto } from "../../modules/profile-photo";
 import photoUrl from "../../../static/profile-photo.png";
 import { ProfileForm } from "../../modules/profile-form";
 import "./profile-page.styl";
@@ -14,7 +14,7 @@ export class ProfilePage extends Component {
           caption: "Шелдон Купер",
           photoUrl,
         }),
-        form: Component.create(ProfileForm),
+        form: Component.create(ProfileForm, {}),
       }),
     });
   }

@@ -1,4 +1,4 @@
-export const range = (start = 0, end, step, isRight = false) => {
+export const range = (start = 0, end?: number, step?: number, isRight = false) => {
   if (end === undefined) {
     end = start;
     start = 0;

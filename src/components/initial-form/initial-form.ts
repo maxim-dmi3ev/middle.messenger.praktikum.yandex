@@ -1,10 +1,14 @@
 import { Component } from "../../utils/Component";
 import tmplFunc from "./initial-form.hbs";
 import { Button } from "../button";
-import { PseudoLink } from "../pseudo-link/pseudo-link";
+import { PseudoLink } from "../pseudo-link";
 import "./initial-form.styl";
 
-export class InitialForm extends Component {
+export class InitialForm extends Component<{
+  inputs: string[];
+  mainButtonText?: string;
+  secondaryButtonText?: string;
+}> {
   render() {
     const {
       inputs,

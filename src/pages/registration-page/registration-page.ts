@@ -5,6 +5,6 @@ import "./registration-page.styl";
 
 export class RegistrationPage extends Component {
   render() {
-    return tmplFunc({ form: Component.create(RegistrationForm) });
+    return tmplFunc({ form: Component.create(RegistrationForm, {}) });
   }
 }

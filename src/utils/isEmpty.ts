@@ -1,4 +1,4 @@
-export const isEmpty = (value) => {
+export const isEmpty = (value: any) => {
   if (Array.isArray(value) || typeof value === "string") {
     return value.length === 0;
   }
