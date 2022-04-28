@@ -10,11 +10,7 @@ export class InitialForm extends Component<{
   secondaryButtonText?: string;
 }> {
   render() {
-    const {
-      inputs,
-      mainButtonText = "",
-      secondaryButtonText = "",
-    } = this.props;
+    const { inputs, mainButtonText = "", secondaryButtonText = "" } = this.props;
     return tmplFunc({
       inputs,
       mainButton: Component.create(Button, {

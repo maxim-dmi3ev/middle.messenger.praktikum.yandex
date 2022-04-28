@@ -8,7 +8,7 @@ export class PseudoLink extends Component<{
 }> {
   render() {
     const { text = "", type = "prime" } = this.props;
-    const classNames = `${"pseudo-link_" + type}`;
+    const classNames = `pseudo-link_${type}`;
     return tmplFunc({ text, classNames });
   }
 }

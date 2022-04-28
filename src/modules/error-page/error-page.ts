@@ -5,14 +5,13 @@ import "./error-page.styl";
 
 export class ErrorPage extends Component<{
   errorCode: string;
-  errorText: string
+  errorText: string;
   imageSrc: string;
   goBackLink: string;
   goBackLinkText: string;
 }> {
   render() {
-    const { errorCode, errorText, imageSrc, goBackLink, goBackLinkText } =
-      this.props;
+    const { errorCode, errorText, imageSrc, goBackLink, goBackLinkText } = this.props;
     return Component.create(BaseLayout, {
       content: tmplFunc({
         errorCode,

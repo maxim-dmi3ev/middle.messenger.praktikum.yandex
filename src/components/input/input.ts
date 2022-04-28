@@ -9,12 +9,7 @@ export class Input extends Component<{
   type?: "text" | "password";
 }> {
   render() {
-    const {
-      name = "",
-      label = "",
-      placeholder = "",
-      type = "text",
-    } = this.props;
+    const { name = "", label = "", placeholder = "", type = "text" } = this.props;
     return templateFunc({ name, label, placeholder, type });
   }
 }
