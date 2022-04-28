@@ -1,6 +1,7 @@
 {
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
+  "private": true,
   "description": "Chat App",
   "engines": {
     "node": ">= 12.22.12"
