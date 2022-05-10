@@ -12,13 +12,13 @@
   "source": "static/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel static/index.html -p 3000 --no-cache",
+    "dev": "parcel static/index.html -p 3000",
     "build": "npm run typecheck && parcel build static/index.html --no-cache --no-minify",
     "start:server": "node server.js",
     "start": "npm run build && npm run start:server",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ./src --cache",
-    "lint:fix": "eslint ./src --fix --cache",
+    "lint:fix": "eslint ./src --fix",
     "prettier": "prettier --write .",
     "prepare": "husky install"
   },

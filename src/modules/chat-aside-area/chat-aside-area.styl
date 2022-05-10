@@ -1,0 +1,27 @@
+@import "../../styles/colors.styl";
+
+.chat-aside-area {
+  height: 100vh;
+  overflow-y: auto;
+  background-color: $background-dark;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 20px;
+    height: 80px;
+    background-color: $background-light;
+    border-bottom: 1px solid $border-default;
+  }
+
+  &__profile {
+    &:hover img {
+      outline: 3px solid $border-prime;
+    }
+  }
+
+  &__chat-creation {
+    margin-left: 20px;
+  }
+}

@@ -21,7 +21,7 @@ export class Block {
 
   private _id: string;
 
-  protected props: Props;
+  props: Props;
 
   protected children: Children;
 

@@ -1,13 +1,16 @@
-.chat-page {
-  padding: 30px;
+@import "../../styles/colors.styl";
 
-  &__title {
-    text-align: center;
+.chat-page {
+  display: flex;
+  background-color: $background-dark;
+
+  &__aside {
+    min-width: 450px;
+    border-right: 1px solid $border-default;
   }
 
-  &__list {
-    a {
-      color: #fff;
-    }
+  &__main {
+    min-width: 600px;
+    flex-grow: 1;
   }
 }

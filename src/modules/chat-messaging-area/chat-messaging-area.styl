@@ -1,0 +1,62 @@
+@import "../../styles/colors.styl"
+
+.chat-messaging-area {
+  position: relative;
+  height: 100%;
+
+  &_enabled {
+    .chat-messaging-area {
+      &__placeholder {
+        display: none;
+      }
+
+      &__content {
+        display: block;
+      }
+    }
+  }
+
+  &__content {
+    display: none;
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: $text-secondary;
+  }
+
+  &__header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid $border-default;
+    background-color: $background-light;
+  }
+
+  &__main {
+    height: calc(100vh - 150px);
+    min-height: 300px;
+  }
+
+  &__footer {
+    height: 70px;
+  }
+
+  &__avatar {
+    margin-right: 20px;
+  }
+
+  &__name {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-right: 20px;
+    text-overflow: ellipsis;
+    font-size: 18px;
+  }
+}
