@@ -4,6 +4,16 @@
   display: flex;
   flex-direction: column;
 
+  &_error {
+    .input__field {
+      border-color: $error-color !important;
+    }
+
+    .input__error {
+      display: block;
+    }
+  }
+
   &__label + &__field {
     margin-top: 5px;
   }
@@ -33,5 +43,12 @@
     &_invalid {
       border-color: $error-color;
     }
+  }
+
+  &__error {
+    display: none;
+    color: $error-color;
+    font-size: 12px;
+    padding-top: 5px;
   }
 }

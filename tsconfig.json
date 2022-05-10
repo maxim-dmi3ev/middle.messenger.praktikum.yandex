@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "moduleResolution": "Node",
+    "target": "esnext",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,

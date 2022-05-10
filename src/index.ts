@@ -4,8 +4,8 @@ import { ChatPage } from "./pages/chat-page";
 import { ProfilePage } from "./pages/profile-page";
 import { NotFoundErrorPage } from "./pages/not-found-error-page";
 import { ServerErrorPage } from "./pages/server-error-page";
-import { Component } from "./utils/Component";
-import "./styles.styl";
+import { renderDOM } from "./utils/renderDOM";
+import "./styles/index.styl";
 
 const routes = {
   "/authorization": AuthorizationPage,
@@ -19,13 +19,10 @@ const routes = {
 const initApp = () => {
   const pageRoute = window.location.pathname.toLowerCase();
 
-  const currentRoute =
+  const Route =
     pageRoute === "/" ? ChatPage : routes[pageRoute as keyof typeof routes] || NotFoundErrorPage;
 
-  const rootEl = document.getElementById("app");
-  if (rootEl) {
-    rootEl.innerHTML = Component.create(currentRoute, {});
-  }
+  renderDOM("#app", new Route());
 };
 
 initApp();

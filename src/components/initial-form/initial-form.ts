@@ -1,25 +1,50 @@
-import { Component } from "../../utils/Component";
+import { Block } from "../../utils/Block";
 import tmplFunc from "./initial-form.hbs";
 import { Button } from "../button";
 import { PseudoLink } from "../pseudo-link";
+import { Input } from "../input";
 import "./initial-form.styl";
 
-export class InitialForm extends Component<{
-  inputs: string[];
+type Props = {
+  inputs: Input[];
   mainButtonText?: string;
   secondaryButtonText?: string;
-}> {
+  events: {
+    submit: (evt: SubmitEvent) => void;
+  };
+};
+
+export class InitialForm extends Block {
+  constructor(props: Props) {
+    super(props);
+  }
+
+  protected initChildren() {
+    this.children.mainButton = new Button({
+      text: this.props.mainButtonText || "",
+      type: "submit",
+      fullWidth: true,
+    });
+
+    this.children.secondaryButton = new PseudoLink({
+      text: this.props.secondaryButtonText || "",
+      events: {
+        click: () => this.handleNoProfileClick(),
+      },
+    });
+  }
+
+  handleNoProfileClick() {
+    console.log("Go to Auth Page");
+  }
+
   render() {
-    const { inputs, mainButtonText = "", secondaryButtonText = "" } = this.props;
-    return tmplFunc({
+    const { inputs } = this.props;
+
+    return this.compile(tmplFunc, {
       inputs,
-      mainButton: Component.create(Button, {
-        text: mainButtonText,
-        fullWidth: true,
-      }),
-      secondaryButton: Component.create(PseudoLink, {
-        text: secondaryButtonText,
-      }),
+      mainButton: this.children.mainButton,
+      secondaryButton: this.children.secondaryButton,
     });
   }
 }

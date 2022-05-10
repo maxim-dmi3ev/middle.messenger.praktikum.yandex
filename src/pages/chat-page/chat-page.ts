@@ -1,9 +1,9 @@
-import { Component } from "../../utils/Component";
+import { Block } from "../../utils/Block";
 import tmplFunc from "./chat-page.hbs";
 import "./chat-page.styl";
 
-export class ChatPage extends Component {
+export class ChatPage extends Block {
   render() {
-    return tmplFunc();
+    return this.compile(tmplFunc);
   }
 }

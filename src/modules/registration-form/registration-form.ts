@@ -1,54 +1,117 @@
-import { Component } from "../../utils/Component";
 import tmplFunc from "./registration-form.hbs";
 import { Input } from "../../components/input";
 import { InitialForm } from "../../components/initial-form";
+import { Block } from "../../utils/Block";
+import { Validator } from "../../utils/Validator";
+import { INPUTS_CONFIGURATIONS } from "./utils";
 
-export class RegistrationForm extends Component {
+export class RegistrationForm extends Block {
+  private validator = new Validator();
+
+  private isSubmitting = false;
+
+  constructor() {
+    super();
+    this.initValidator();
+  }
+
+  private initValidator() {
+    Object.entries(INPUTS_CONFIGURATIONS).forEach(([name, { validation }]) => {
+      this.validator.register(name, validation);
+    });
+  }
+
+  protected componentDidMount() {
+    this.initInputsValidation();
+  }
+
+  private initInputsValidation() {
+    Object.entries(INPUTS_CONFIGURATIONS).forEach(([name]) => {
+      (this.elements[name] as Input)
+        .getInput()
+        .addEventListener("blur", (evt) => this.handleFocus(evt));
+    });
+  }
+
+  protected initChildren() {
+    const inputs = Object.entries(INPUTS_CONFIGURATIONS).map(([inputName, configuration]) => {
+      const { name, placeholder, label, type } = configuration;
+      const input = new Input({ name, placeholder, label, type });
+      this.elements[inputName] = input;
+      return input;
+    });
+
+    this.children.form = new InitialForm({
+      inputs,
+      mainButtonText: "Создать профиль",
+      secondaryButtonText: "Войти",
+      events: {
+        submit: (evt: SubmitEvent) => {
+          this.handleSubmit(evt);
+        },
+      },
+    });
+  }
+
+  private handleSubmit(evt: SubmitEvent) {
+    evt.preventDefault();
+
+    this.isSubmitting = true;
+
+    const form = evt.target as HTMLFormElement;
+    const inputsState = Object.keys(INPUTS_CONFIGURATIONS).reduce<{
+      inputs: Record<string, any>;
+      errors: Record<string, string[] | undefined>;
+      errorsLength: number;
+    }>(
+      (acc, name) => {
+        const { value } = form[name];
+        const errors = this.validateInput(name, value, form);
+        acc.inputs[name] = value;
+        acc.errors[name] = errors;
+        acc.errorsLength += errors?.length || 0;
+        return acc;
+      },
+      { inputs: {}, errors: {}, errorsLength: 0 }
+    );
+
+    if (inputsState.errorsLength === 0) {
+      console.log(inputsState.inputs);
+    }
+
+    this.isSubmitting = false;
+  }
+
+  private handleFocus(evt: FocusEvent) {
+    if (this.isSubmitting) {
+      return;
+    }
+    const { name, value } = evt.target as HTMLInputElement;
+    this.validateInput(name, value);
+  }
+
+  private validateInput(name: string, value: string, form?: HTMLFormElement) {
+    const errors = this.validator.validate(name, value) || [];
+
+    if (form && name === "password_double") {
+      if (form.password.value !== form.password_double.value) {
+        errors.push("Пароли должны совпадать");
+      }
+    }
+
+    this.elements[name].setProps({
+      error: errors.length ? errors[0] : undefined,
+      value,
+    });
+
+    this.initInputsValidation();
+
+    return errors;
+  }
+
   render() {
-    return tmplFunc({
-      form: Component.create(InitialForm, {
-        inputs: [
-          Component.create(Input, {
-            name: "email",
-            placeholder: "Введите почту",
-            label: "Почта",
-          }),
-          Component.create(Input, {
-            name: "login",
-            placeholder: "Введите логин",
-            label: "Логин",
-          }),
-          Component.create(Input, {
-            name: "first_name",
-            placeholder: "Введите имя",
-            label: "Имя",
-          }),
-          Component.create(Input, {
-            name: "second_name",
-            placeholder: "Введите фамилию",
-            label: "Фамилия",
-          }),
-          Component.create(Input, {
-            name: "phone",
-            placeholder: "Введите телефон",
-            label: "Телефон",
-          }),
-          Component.create(Input, {
-            name: "password",
-            placeholder: "Введите пароль",
-            label: "Пароль",
-            type: "password",
-          }),
-          Component.create(Input, {
-            name: "password_double",
-            placeholder: "Введите пароль",
-            label: "Пароль (еще раз)",
-            type: "password",
-          }),
-        ],
-        mainButtonText: "Создать профиль",
-        secondaryButtonText: "Войти",
-      }),
+    return this.compile(tmplFunc, {
+      form: this.children.form,
     });
   }
 }

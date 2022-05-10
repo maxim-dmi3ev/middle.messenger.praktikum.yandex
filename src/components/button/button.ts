@@ -1,11 +1,21 @@
-import { Component } from "../../utils/Component";
+import { Block } from "../../utils/Block";
 import tmplFunc from "./button.hbs";
 import "./button.styl";
 
-export class Button extends Component<{ text: string; fullWidth: boolean }> {
+type Props = {
+  text: string;
+  type?: "button" | "submit";
+  fullWidth?: boolean;
+};
+
+export class Button extends Block {
+  constructor(props: Props) {
+    super(props);
+  }
+
   render() {
-    const { text, fullWidth } = this.props;
+    const { text, fullWidth, type = "button" } = this.props;
     const classNames = `${fullWidth ? "button_full-width" : ""}`;
-    return tmplFunc({ text, fullWidth, classNames });
+    return this.compile(tmplFunc, { text, type, fullWidth, classNames });
   }
 }

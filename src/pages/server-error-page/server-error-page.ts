@@ -1,18 +1,23 @@
-import { Component } from "../../utils/Component";
-import { BaseLayout } from "../../layout/base-layout";
+import tmplFunc from "./server-error-page.hbs";
 import imageSrc from "../../../static/500.svg";
-import { ErrorPage } from "../../modules/error-page";
+import { Error } from "../../modules/error";
+import { Block } from "../../utils/Block";
+import "./server-error-page.styl";
 
-export class ServerErrorPage extends Component {
+export class ServerErrorPage extends Block {
+  protected initChildren() {
+    this.children.content = new Error({
+      errorCode: "500",
+      errorText: "Упс, что-то пошло не так... Уже фиксим",
+      imageSrc,
+      goBackLink: "/chat",
+      goBackLinkText: "Вернуться на главную",
+    });
+  }
+
   render() {
-    return Component.create(BaseLayout, {
-      content: Component.create(ErrorPage, {
-        errorCode: "500",
-        errorText: "Упс, что-то пошло не так... Уже фиксим",
-        imageSrc,
-        goBackLink: "/chat",
-        goBackLinkText: "Вернуться на главную",
-      }),
+    return this.compile(tmplFunc, {
+      content: this.children.content,
     });
   }
 }

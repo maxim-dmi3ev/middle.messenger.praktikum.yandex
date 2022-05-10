@@ -1,15 +1,28 @@
-import { Component } from "../../utils/Component";
-import templateFunc from "./input.hbs";
+import { Block } from "../../utils/Block";
+import tmplFunc from "./input.hbs";
 import "./input.styl";
 
-export class Input extends Component<{
+export type Props = {
   name?: string;
+  value?: string;
   label?: string;
   placeholder?: string;
   type?: "text" | "password";
-}> {
+  error?: string;
+};
+
+export class Input extends Block {
+  constructor(props: Props) {
+    super(props);
+  }
+
+  getInput() {
+    return this.getContent()!.querySelector("input") as HTMLInputElement;
+  }
+
   render() {
-    const { name = "", label = "", placeholder = "", type = "text" } = this.props;
-    return templateFunc({ name, label, placeholder, type });
+    const { name = "", value, label = "", placeholder = "", type = "text", error } = this.props;
+    const className = error ? "input_error" : "";
+    return this.compile(tmplFunc, { name, value, label, placeholder, type, error, className });
   }
 }
