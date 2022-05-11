@@ -36,3 +36,4 @@ That's it. App should be running locally on port 3000.
 
 ## Pull Requests:
 - [Sprint 1](https://github.com/maxim-dmi3ev/middle.messenger.praktikum.yandex/pull/1)
+- [Sprint 2](https://github.com/maxim-dmi3ev/middle.messenger.praktikum.yandex/pull/2)
