@@ -26,6 +26,8 @@ That's it. App should be running locally on port 3000.
 - `npm run typecheck` — starts TS type check;
 - `npm run lint` — starts ESLint inside src folder;
 - `npm run lint:fix` — starts ESLint inside src folder with --fix flag;
+- `npm run stylelint` — starts stylelint;
+- `npm run stylelint:fix` — starts stylelint with --fix flag;
 - `npm run prepare` — husky package installation for enabling git hooks;
 
 ## App routes:
