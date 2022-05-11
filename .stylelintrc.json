@@ -1,0 +1,14 @@
+{
+  "plugins": ["stylelint-plugin-stylus"],
+  "extends": [
+    "stylelint-config-prettier",
+    "stylelint-config-standard",
+    "stylelint-plugin-stylus/standard"
+  ],
+  "rules": {
+    "stylus/semicolon": null,
+    "stylus/declaration-colon": null,
+    "stylus/pythonic": null,
+    "selector-class-pattern": null
+  }
+}

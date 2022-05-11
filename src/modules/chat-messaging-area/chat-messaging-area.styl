@@ -4,18 +4,6 @@
   position: relative;
   height: 100%;
 
-  &_enabled {
-    .chat-messaging-area {
-      &__placeholder {
-        display: none;
-      }
-
-      &__content {
-        display: block;
-      }
-    }
-  }
-
   &__content {
     display: none;
   }
@@ -27,6 +15,18 @@
     transform: translate(-50%, -50%);
     font-size: 16px;
     color: $text-secondary;
+  }
+
+  &_enabled {
+    .chat-messaging-area {
+      &__placeholder {
+        display: none;
+      }
+
+      &__content {
+        display: block;
+      }
+    }
   }
 
   &__header {
