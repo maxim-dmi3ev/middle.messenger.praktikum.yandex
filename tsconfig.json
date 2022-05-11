@@ -4,6 +4,8 @@
     "target": "esnext",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "strict": true,
     "sourceMap": true
   }

@@ -1,4 +1,4 @@
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import tmplFunc from "./profile-page.hbs";
 import { ProfilePhoto } from "../../modules/profile-photo";
 import photoUrl from "../../../static/profile-photo.png";

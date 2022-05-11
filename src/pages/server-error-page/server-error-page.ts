@@ -1,7 +1,7 @@
 import tmplFunc from "./server-error-page.hbs";
 import imageSrc from "../../../static/500.svg";
 import { Error } from "../../modules/error";
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import "./server-error-page.styl";
 
 export class ServerErrorPage extends Block {

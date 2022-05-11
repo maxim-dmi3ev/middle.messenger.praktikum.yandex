@@ -1,7 +1,7 @@
 import tmplFunc from "./not-found-error-page.hbs";
 import imageSrc from "../../../static/404.svg";
 import { Error } from "../../modules/error";
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import "./not-found-error-page.styl";
 
 export class NotFoundErrorPage extends Block {

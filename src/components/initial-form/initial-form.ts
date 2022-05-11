@@ -1,4 +1,4 @@
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import tmplFunc from "./initial-form.hbs";
 import { Button } from "../button";
 import { PseudoLink } from "../pseudo-link";

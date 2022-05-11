@@ -1,5 +1,5 @@
 import tmplFunc from "./profile-photo.hbs";
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import "./profile-photo.styl";
 
 type Props = {

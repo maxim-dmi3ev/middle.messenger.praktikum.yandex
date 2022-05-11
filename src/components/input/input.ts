@@ -1,4 +1,4 @@
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import tmplFunc from "./input.hbs";
 import "./input.styl";
 

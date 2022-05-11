@@ -1,6 +1,6 @@
 import tmplFunc from "./registration-page.hbs";
 import { RegistrationForm } from "../../modules/registration-form";
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import "./registration-page.styl";
 
 export class RegistrationPage extends Block {

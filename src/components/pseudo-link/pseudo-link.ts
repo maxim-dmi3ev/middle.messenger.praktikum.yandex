@@ -1,4 +1,4 @@
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import tmplFunc from "./pseudo-link.hbs";
 import "./pseudo-link.styl";
 

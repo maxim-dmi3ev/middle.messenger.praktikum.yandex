@@ -1,8 +1,8 @@
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import tmplFunc from "./authorization-form.hbs";
 import { Input } from "../../components/input";
 import { InitialForm } from "../../components/initial-form";
-import { Validator } from "../../utils/Validator";
+import { Validator } from "../../utils/validator";
 
 export class AuthorizationForm extends Block {
   private validator = new Validator();

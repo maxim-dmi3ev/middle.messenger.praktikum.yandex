@@ -1,4 +1,4 @@
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import tmplFunc from "./avatar.hbs";
 import ChatAvatar from "../../../static/chat-avatar.svg";
 import "./avatar.styl";

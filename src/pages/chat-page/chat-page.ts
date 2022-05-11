@@ -1,4 +1,4 @@
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import tmplFunc from "./chat-page.hbs";
 import { ChatAsideArea } from "../../modules/chat-aside-area";
 import { ChatMessagingArea } from "../../modules/chat-messaging-area";

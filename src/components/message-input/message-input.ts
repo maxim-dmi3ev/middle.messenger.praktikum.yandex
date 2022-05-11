@@ -1,4 +1,4 @@
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import tmplFunc from "./message-input.hbs";
 import { IconButton } from "../icon-button";
 import "./message-input.styl";

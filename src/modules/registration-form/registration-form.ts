@@ -1,8 +1,8 @@
 import tmplFunc from "./registration-form.hbs";
 import { Input } from "../../components/input";
 import { InitialForm } from "../../components/initial-form";
-import { Block } from "../../utils/Block";
-import { Validator } from "../../utils/Validator";
+import { Block } from "../../utils/block";
+import { Validator } from "../../utils/validator";
 import { INPUTS_CONFIGURATIONS } from "./utils";
 
 export class RegistrationForm extends Block {

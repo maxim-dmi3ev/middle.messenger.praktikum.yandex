@@ -1,6 +1,6 @@
 import tmplFunc from "./profile-form.hbs";
 import { PseudoLink } from "../../components/pseudo-link";
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import "./profile-form.styl";
 
 export class ProfileForm extends Block {

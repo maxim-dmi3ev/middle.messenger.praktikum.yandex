@@ -1,4 +1,4 @@
-import { Block } from "../../utils/Block";
+import { Block } from "../../utils/block";
 import tmplFunc from "./authorization-page.hbs";
 import { AuthorizationForm } from "../../modules/authorization-form";
 import "./authorization-page.styl";
