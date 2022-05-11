@@ -1,8 +1,8 @@
 import { Block } from "../../utils/Block";
 import tmplFunc from "./chat-page.hbs";
 import { ChatAsideArea } from "../../modules/chat-aside-area";
-import "./chat-page.styl";
 import { ChatMessagingArea } from "../../modules/chat-messaging-area";
+import "./chat-page.styl";
 
 const dummyChats = [
   {
