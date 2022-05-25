@@ -10,11 +10,11 @@ type Props = {
 
 export class Button extends Block {
   constructor(props: Props) {
-    super(props);
+    super({ type: "button", ...props });
   }
 
   render() {
-    const { text, fullWidth, type = "button" } = this.props;
+    const { text, fullWidth, type } = this.props;
     const classNames = `${fullWidth ? "button_full-width" : ""}`;
     return this.compile(tmplFunc, { text, type, fullWidth, classNames });
   }
