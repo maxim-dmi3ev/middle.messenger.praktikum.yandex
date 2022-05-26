@@ -7,7 +7,7 @@ type Props = {
   color?: string;
 };
 
-export class Icon extends Block {
+export class Icon extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }

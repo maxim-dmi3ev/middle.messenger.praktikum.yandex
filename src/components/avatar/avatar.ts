@@ -7,7 +7,7 @@ type Props = {
   image?: string;
 };
 
-export class Avatar extends Block {
+export class Avatar extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }

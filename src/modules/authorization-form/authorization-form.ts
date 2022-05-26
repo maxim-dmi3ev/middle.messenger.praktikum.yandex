@@ -10,7 +10,7 @@ export class AuthorizationForm extends Block {
   private isSubmitting = false;
 
   constructor() {
-    super();
+    super({});
 
     this.validator
       .register("login", [Validator.stringLengthValidation(3, 20), Validator.loginValidation])

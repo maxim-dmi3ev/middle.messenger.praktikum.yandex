@@ -10,7 +10,7 @@ type Props = {
   chat?: Chat;
 };
 
-export class ChatMessagingArea extends Block {
+export class ChatMessagingArea extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }

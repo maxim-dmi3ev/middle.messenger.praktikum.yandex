@@ -11,7 +11,7 @@ export class ProfilePage extends Block {
       caption: "Шелдон Купер",
       photoUrl,
     });
-    this.children.form = new ProfileForm();
+    this.children.form = new ProfileForm({});
   }
 
   render() {

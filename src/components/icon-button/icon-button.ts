@@ -10,7 +10,7 @@ type Props = {
   type?: "button" | "submit" | "reset";
 };
 
-export class IconButton extends Block {
+export class IconButton extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }

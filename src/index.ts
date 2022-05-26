@@ -22,7 +22,7 @@ const initApp = () => {
   const Route =
     pageRoute === "/" ? ChatPage : routes[pageRoute as keyof typeof routes] || NotFoundErrorPage;
 
-  renderDOM("#app", new Route());
+  renderDOM("#app", new Route({}));
 };
 
 initApp();

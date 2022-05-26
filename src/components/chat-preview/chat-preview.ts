@@ -14,7 +14,7 @@ type Props = {
   };
 } & Chat;
 
-export class ChatPreview extends Block {
+export class ChatPreview extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }

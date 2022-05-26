@@ -10,7 +10,7 @@ type Props = {
   };
 };
 
-export class PseudoLink extends Block {
+export class PseudoLink extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }

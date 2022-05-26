@@ -14,7 +14,7 @@ type Props = {
   };
 };
 
-export class InitialForm extends Block {
+export class InitialForm extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }

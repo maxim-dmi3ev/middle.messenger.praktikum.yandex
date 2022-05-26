@@ -8,7 +8,7 @@ export type Props = {
 
 type Children = Record<string, Block | Block[]>;
 
-export class Block {
+export class Block<P extends {} = {}> {
   static EVENTS = {
     INIT: "_init",
     FLOW_CDM: "flow:component-did-mount",
@@ -21,13 +21,13 @@ export class Block {
 
   private _id: string;
 
-  props: Props;
+  props: P;
 
   protected children: Children;
 
-  protected elements: Record<string, Block> = {};
+  protected elements: Record<string, Block<P>> = {};
 
-  constructor(propsAndChildren: Props = {}) {
+  constructor(propsAndChildren: P) {
     const eventBus = new EventBus();
 
     const { children, props } = this._getChildren(propsAndChildren);
@@ -62,7 +62,7 @@ export class Block {
 
   // @ts-ignore
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  protected componentDidUpdate(oldProps: Props, newProps: Props): boolean {
+  protected componentDidUpdate(oldProps: P, newProps: P): boolean {
     return true;
   }
 
@@ -74,12 +74,12 @@ export class Block {
     return this._element;
   }
 
-  setProps(nextProps: Partial<Props>) {
+  setProps(nextProps: Partial<P>) {
     Object.assign(this.props, nextProps);
   }
 
-  protected compile(tmplFunc: (param?: any) => string, context?: Props) {
-    const contextAndStubs = { ...context };
+  protected compile(tmplFunc: (param?: any) => string, context?: Record<string, any>) {
+    const contextAndStubs = { ...context } as any;
 
     Object.entries(this.children).forEach(([key, child]) => {
       if (Array.isArray(child)) {
@@ -110,9 +110,9 @@ export class Block {
     return fragment.content as DocumentFragment;
   }
 
-  private _getChildren(propsAndChildren: Props) {
+  private _getChildren(propsAndChildren: P) {
     const children: Children = {};
-    const props: Props = {};
+    const props: Record<string, any> = {};
 
     Object.entries(propsAndChildren).forEach(([key, value]) => {
       if (Array.isArray(value) && value.every((v) => v instanceof Block)) {
@@ -124,10 +124,10 @@ export class Block {
       }
     });
 
-    return { children, props };
+    return { children, props } as { children: Children; props: P };
   }
 
-  private _makePropsProxy(props: Props) {
+  private _makePropsProxy(props: P) {
     const self = this;
     const isPrivateProp = (prop: string) => {
       if (prop.indexOf("_") === 0) {
@@ -141,7 +141,7 @@ export class Block {
           return undefined;
         }
         isPrivateProp(prop);
-        const value = target[prop];
+        const value = target[prop as keyof P];
         return typeof value === "function" ? value.bind(target) : value;
       },
       set(target, prop, value) {
@@ -150,7 +150,7 @@ export class Block {
         }
         isPrivateProp(prop);
         const prevTarget = { ...target };
-        target[prop] = value;
+        target[prop as keyof P] = value;
         self.eventBus().emit(Block.EVENTS.FLOW_CDU, prevTarget, target);
         return true;
       },
@@ -159,7 +159,7 @@ export class Block {
           return false;
         }
         isPrivateProp(prop);
-        delete target[prop];
+        delete target[prop as keyof P];
         return true;
       },
     });
@@ -223,21 +223,24 @@ export class Block {
   }
 
   private _addEvents() {
+    // @ts-ignore
     const { events = {} } = this.props;
-
     Object.entries(events).forEach(([event, handler]) =>
+      // @ts-ignore
       this._element!.addEventListener(event, handler)
     );
   }
 
   private _removeEvents() {
+    // @ts-ignore
     const { events = {} } = this.props;
     Object.entries(events).forEach(([event, handler]) =>
+      // @ts-ignore
       this._element!.removeEventListener(event, handler)
     );
   }
 
-  private _componentDidUpdate(oldProps: Props, newProps: Props) {
+  private _componentDidUpdate(oldProps: P, newProps: P) {
     if (this.componentDidUpdate(oldProps, newProps)) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }

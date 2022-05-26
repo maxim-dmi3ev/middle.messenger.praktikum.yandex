@@ -9,7 +9,7 @@ type Props = {
   };
 };
 
-export class MessageInput extends Block {
+export class MessageInput extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }

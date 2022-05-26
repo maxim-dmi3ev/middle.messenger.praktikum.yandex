@@ -7,7 +7,7 @@ type Props = {
   caption: string;
 };
 
-export class ProfilePhoto extends Block {
+export class ProfilePhoto extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }

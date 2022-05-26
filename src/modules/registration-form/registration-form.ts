@@ -11,7 +11,7 @@ export class RegistrationForm extends Block {
   private isSubmitting = false;
 
   constructor() {
-    super();
+    super({});
     this.initValidator();
   }
 

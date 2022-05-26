@@ -10,7 +10,7 @@ type Props = {
   goBackLinkText: string;
 };
 
-export class Error extends Block {
+export class Error extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }

@@ -4,19 +4,19 @@ import { Chat } from "../../types/chat";
 import { ChatPreview } from "../chat-preview";
 
 type Props = {
-  selectedChat: number | null;
+  selectedChat: string | null;
   chats: Chat[];
   onChatClick: (id: string) => void;
 };
 
-export class ChatsList extends Block {
+export class ChatsList extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }
 
   protected componentDidUpdate(oldProps: Props, newProps: Props): boolean {
     if (oldProps.selectedChat !== newProps.selectedChat) {
-      (this.children.chats as Block[]).forEach((chat) => {
+      (this.children.chats as ChatPreview[]).forEach((chat) => {
         chat.setProps({
           isSelected: newProps.selectedChat === chat.props.id,
         });
@@ -27,7 +27,7 @@ export class ChatsList extends Block {
   }
 
   protected initChildren() {
-    this.children.chats = (this.props as Props).chats.map(
+    this.children.chats = this.props.chats.map(
       (chat) =>
         new ChatPreview({
           ...chat,
@@ -40,7 +40,10 @@ export class ChatsList extends Block {
   }
 
   handleChatClick(evt: MouseEvent) {
-    this.props.onChatClick((evt.currentTarget as HTMLElement).dataset.id);
+    const { id } = (evt.currentTarget as HTMLElement).dataset;
+    if (id) {
+      this.props.onChatClick(id);
+    }
   }
 
   protected render(): DocumentFragment {

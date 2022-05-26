@@ -13,7 +13,7 @@ type Props = {
   onChatClick: (id: string) => void;
 };
 
-export class ChatAsideArea extends Block {
+export class ChatAsideArea extends Block<Props> {
   constructor(props: Props) {
     super(props);
   }
