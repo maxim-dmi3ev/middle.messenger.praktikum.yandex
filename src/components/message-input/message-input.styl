@@ -1,0 +1,38 @@
+@import "../../styles/colors.styl";
+
+.message-input {
+  height: 100%;
+  display: flex;
+  padding: 10px 20px;
+  background-color: $background-light;
+  // border-top: 1px solid $border-default;
+
+  &__text-field {
+    width: 100%;
+    margin-right: 20px;
+  }
+
+  &__input {
+    height: 50px;
+    width: 100%;
+    padding: 0 20px;
+    border-radius: 10px;
+    background-color: $background-grey1;
+    border: none;
+    color: $text-default;
+    font-size: 16px;
+
+    &:focus {
+      outline: 2px solid $border-prime;
+    }
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+  }
+}
