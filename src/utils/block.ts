@@ -8,6 +8,8 @@ export type Props = {
 
 type Children = Record<string, Block | Block[]>;
 
+export type BlockConstructor = new (propsAndChildren: {}) => Block;
+
 export class Block<P extends {} = {}> {
   static EVENTS = {
     INIT: "_init",
@@ -243,6 +245,18 @@ export class Block<P extends {} = {}> {
   private _componentDidUpdate(oldProps: P, newProps: P) {
     if (this.componentDidUpdate(oldProps, newProps)) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+    }
+  }
+
+  hide() {
+    if (this._element) {
+      this._element.style.display = "none";
+    }
+  }
+
+  show() {
+    if (this._element) {
+      this._element.style.display = "";
     }
   }
 }

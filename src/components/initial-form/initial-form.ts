@@ -9,6 +9,7 @@ type Props = {
   inputs: Input[];
   mainButtonText?: string;
   secondaryButtonText?: string;
+  onSecondaryButtonClick: () => void;
   events: {
     submit: (evt: SubmitEvent) => void;
   };
@@ -29,7 +30,7 @@ export class InitialForm extends Block<Props> {
     this.children.secondaryButton = new PseudoLink({
       text: this.props.secondaryButtonText || "",
       events: {
-        click: () => this.handleNoProfileClick(),
+        click: this.props.onSecondaryButtonClick,
       },
     });
   }

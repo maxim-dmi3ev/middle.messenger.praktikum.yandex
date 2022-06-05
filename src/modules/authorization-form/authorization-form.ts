@@ -3,6 +3,8 @@ import tmplFunc from "./authorization-form.hbs";
 import { Input } from "../../components/input";
 import { InitialForm } from "../../components/initial-form";
 import { Validator } from "../../utils/validator";
+import { Router } from "../../utils/router";
+import { ROUTES } from "../../routes";
 
 export class AuthorizationForm extends Block {
   private validator = new Validator();
@@ -42,12 +44,17 @@ export class AuthorizationForm extends Block {
       inputs: [this.elements.login as Input, this.elements.password as Input],
       mainButtonText: "Войти",
       secondaryButtonText: "Нет профиля?",
+      onSecondaryButtonClick: this.handleSecondaryButtonClick,
       events: {
         submit: (evt: SubmitEvent) => {
           this.handleSubmit(evt);
         },
       },
     });
+  }
+
+  private handleSecondaryButtonClick() {
+    new Router().go(ROUTES.registration);
   }
 
   private handleSubmit(evt: SubmitEvent) {
@@ -64,6 +71,7 @@ export class AuthorizationForm extends Block {
 
     if (!loginErrors && !passwordErrors) {
       console.log({ login: loginElement.value, password: passwordElement.value });
+      new Router().go(ROUTES.chat);
     }
 
     this.isSubmitting = false;

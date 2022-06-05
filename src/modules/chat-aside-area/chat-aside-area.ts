@@ -6,6 +6,8 @@ import { Avatar } from "../../components/avatar";
 import ProfilePhoto from "../../../static/profile-photo.png";
 import { IconButton } from "../../components/icon-button";
 import "./chat-aside-area.styl";
+import { Link } from "../../components/link";
+import { ROUTES } from "../../routes";
 
 type Props = {
   selectedChat: number | null;
@@ -29,7 +31,10 @@ export class ChatAsideArea extends Block<Props> {
   }
 
   initChildren() {
-    this.children.profileAvatar = new Avatar({ image: ProfilePhoto });
+    this.children.profileAvatar = new Link({
+      link: ROUTES.profile,
+      content: new Avatar({ image: ProfilePhoto }),
+    });
 
     this.children.chatsList = new ChatsList({
       chats: this.props.chats,

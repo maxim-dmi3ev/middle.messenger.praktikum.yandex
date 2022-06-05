@@ -4,6 +4,8 @@ import { InitialForm } from "../../components/initial-form";
 import { Block } from "../../utils/block";
 import { Validator } from "../../utils/validator";
 import { INPUTS_CONFIGURATIONS } from "./utils";
+import { Router } from "../../utils/router";
+import { ROUTES } from "../../routes";
 
 export class RegistrationForm extends Block {
   private validator = new Validator();
@@ -45,12 +47,17 @@ export class RegistrationForm extends Block {
       inputs,
       mainButtonText: "Создать профиль",
       secondaryButtonText: "Войти",
+      onSecondaryButtonClick: this.handleSecondaryButtonClick,
       events: {
         submit: (evt: SubmitEvent) => {
           this.handleSubmit(evt);
         },
       },
     });
+  }
+
+  private handleSecondaryButtonClick() {
+    new Router().go(ROUTES.authorization);
   }
 
   private handleSubmit(evt: SubmitEvent) {

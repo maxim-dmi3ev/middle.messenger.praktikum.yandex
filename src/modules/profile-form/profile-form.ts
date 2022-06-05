@@ -2,6 +2,8 @@ import tmplFunc from "./profile-form.hbs";
 import { PseudoLink } from "../../components/pseudo-link";
 import { Block } from "../../utils/block";
 import "./profile-form.styl";
+import { Link } from "../../components/link";
+import { ROUTES } from "../../routes";
 
 export class ProfileForm extends Block {
   protected initChildren() {
@@ -11,9 +13,12 @@ export class ProfileForm extends Block {
     this.children.passwordChangeAction = new PseudoLink({
       text: "Изменить пароль",
     });
-    this.children.exitAction = new PseudoLink({
-      text: "Выйти",
-      type: "danger",
+    this.children.exitAction = new Link({
+      link: ROUTES.authorization,
+      content: new PseudoLink({
+        text: "Выйти",
+        type: "danger",
+      }),
     });
   }
 
