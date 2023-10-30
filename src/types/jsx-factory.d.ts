@@ -12,3 +12,5 @@ declare namespace JSX {
 		[eleName: string]: any;
 	}
 }
+
+declare function createElement(type: JSX.ElementType, config: any, ...args: (JSX.Element | 'string' | null | boolean)[]): JSX.Element;
