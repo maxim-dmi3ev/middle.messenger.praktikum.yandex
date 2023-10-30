@@ -1,4 +1,4 @@
-import { createElement, renderDOM } from './utils/r';
+import { createElement, renderDOM } from 'src/utils/r';
 import styles from './app.module.styl';
 
 type TAppProps = { name: string; };

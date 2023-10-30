@@ -9,6 +9,8 @@
     "jsx": "react",
     "jsxFactory": "createElement",
 
+    "baseUrl": "./",
+
     "types": ["vite/client"],
 
     /* Bundler mode */
