@@ -1,9 +1,10 @@
 import { createElement, renderDOM } from './utils/r';
+import styles from './app.module.styl';
 
 type TAppProps = { name: string; };
 const App = ({ name }: TAppProps) => {
 	return (
-		<div id="container">
+		<div className={styles.container}>
 			Hello, <b>{name}</b>!
 		</div>
 	);
