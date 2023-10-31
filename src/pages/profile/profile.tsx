@@ -8,7 +8,7 @@ export const Profile = () => {
 	return (
 		<div className={styles.root}>
 			<div className={styles.header}>
-				<Link to="/chats">Назад</Link>
+				<Link to="/chat">Назад</Link>
 			</div>
 			<Flex direction="column" align="center" gap="50px">
 				<Photo />
