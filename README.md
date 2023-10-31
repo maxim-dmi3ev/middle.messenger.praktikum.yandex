@@ -36,8 +36,8 @@
 ## Другие ссылки:
 
 - [Figma](https://www.figma.com/file/qSOTTp0dwf3wNYLAVJI04B/Chat?node-id=0%3A1)
-- [Деплой на Netlify](https://shimmering-chaja-2e2182.netlify.app/)
+- [Деплой на Netlify](https://shimmering-chaja-2e2182.netlify.app)
 
 ## Pull Requests:
 
-- [Sprint 1](...)
+- [Sprint 1](https://github.com/maxim-dmi3ev/middle.messenger.praktikum.yandex/pull/4)
