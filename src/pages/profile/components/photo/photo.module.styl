@@ -1,0 +1,49 @@
+.root {
+
+}
+
+.image {
+  position: relative;
+  width: 151px;
+  height: 151px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  &:hover {
+    .action {
+      opacity: .8;
+    }
+  }
+}
+
+.action {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 70%);
+  font-size: 16px;
+  text-align: center;
+  color: $text-default;
+  opacity: 0;
+  transition: 0.3s ease opacity;
+}
+
+.caption {
+  margin-top: 20px;
+  font-size: 18px;
+  color: $text-default;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
