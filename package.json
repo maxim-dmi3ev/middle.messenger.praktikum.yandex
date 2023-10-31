@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "npm run typecheck && vite build",
-    "dev": "vite -p 3000",
+    "dev": "vite --port=3000",
     "start:server": "node server.js",
     "start": "npm run build && npm run start:server",
     "typecheck": "tsc --noEmit"

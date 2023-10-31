@@ -11,6 +11,7 @@ export function createElement(type: JSX.ElementType, config: any, ...args: (JSX.
 	const props = Object.assign({}, config);
 
 	props.children = args
+		.flat()
 		.filter((c) => c !== null && typeof c !== "boolean")
 		.map(c => typeof c === 'string' || typeof c === 'number' ? createTextElement(c) : c) as JSX.Element[];
 
@@ -22,6 +23,7 @@ export function createElement(type: JSX.ElementType, config: any, ...args: (JSX.
 }
 
 export function renderDOM(element: JSX.Element, parentDom: HTMLElement): void {
+	console.log(element, parentDom)
 	const {props, type} = element;
 
 	const dom = type === TEXT_ELEMENT
@@ -39,12 +41,20 @@ export function renderDOM(element: JSX.Element, parentDom: HTMLElement): void {
 	Object.keys(props)
 		.filter(name => !isListener(name) && name != "children")
 		.forEach(name => {
-			// @ts-ignore
-			dom[name] = props[name];
+			if (name === 'style') {
+				// @ts-ignore
+				Object.keys(props[name]).forEach((styleKey) => {
+					// @ts-ignore
+					dom.style[styleKey] = props[name][styleKey];
+				});
+			} else {
+				// @ts-ignore
+				dom[name] = props[name];
+			}
 		});
 
 	const childElements = props.children;
 	childElements.forEach(childElement => renderDOM(childElement, dom as HTMLElement));
 
-	parentDom.appendChild(dom)
+	parentDom.appendChild(dom);
 }

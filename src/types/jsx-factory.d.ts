@@ -1,6 +1,8 @@
 declare namespace JSX {
 	type ElementType = string | Function;
 
+	type RChildren = (JSX.Element | 'string' | null | boolean)[];
+
 	type RElement<P extends object = { children: RElement[]; }> = {
 		type: string;
 		props: P;
