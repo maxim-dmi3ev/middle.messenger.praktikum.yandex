@@ -1,1 +1,1 @@
-export {ErrorView} from './error-view';
+export { ErrorView } from "./error-view";

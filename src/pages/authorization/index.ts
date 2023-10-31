@@ -1,1 +1,1 @@
-export {Authorization} from './authorization';
+export { Authorization } from "./authorization";

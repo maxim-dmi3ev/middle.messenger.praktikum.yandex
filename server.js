@@ -9,7 +9,7 @@ app.use(express.static("dist"));
 
 const indexHtml = fs.readFileSync(path.resolve(__dirname, "dist/index.html"));
 app.get("/*", (req, res) => {
-    res.end(indexHtml);
+  res.end(indexHtml);
 });
 
 app.listen(port, () => console.log(`App and running on port: ${port}`));
