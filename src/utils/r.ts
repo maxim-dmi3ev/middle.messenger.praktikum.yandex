@@ -23,7 +23,6 @@ export function createElement(type: JSX.ElementType, config: any, ...args: (JSX.
 }
 
 export function renderDOM(element: JSX.Element, parentDom: HTMLElement): void {
-	console.log(element, parentDom)
 	const {props, type} = element;
 
 	const dom = type === TEXT_ELEMENT
