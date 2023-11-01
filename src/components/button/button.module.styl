@@ -1,0 +1,31 @@
+@import '../../styles/colors.styl';
+
+.button {
+  display: inline-block;
+  padding: 10px 90px;
+  background: $background-prime;
+  border-radius: 7px;
+  border-color: transparent;
+  font-size: 14px;
+  font-weight: bold;
+  color: $text-default;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+
+  &:hover
+  &:focus {
+    background-color: $background-prime-bright;
+  }
+
+  &:focus {
+    outline: 1px solid $border-default;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.stretched {
+  width: 100%;
+}
