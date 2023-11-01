@@ -1,17 +1,17 @@
-import { Flex } from "src/components/flex";
 import { Link } from "src/components/link";
+import styles from './main.module.styl';
 
 export const Main = () => {
   return (
-    <div style={{ padding: "25px" }}>
-      <Flex direction="column" gap="20px" align="center">
-        <Link to="/authorization">Страница авторизации</Link>
-        <Link to="/registration">Страница регистрации</Link>
-        <Link to="/profile">Страница настройки пользователя</Link>
-        <Link to="/chat">Страница чата</Link>
-        <Link to="/404">Страница 404</Link>
-        <Link to="/500">Страница 500</Link>
-      </Flex>
-    </div>
+    <nav>
+      <ul className={styles.list}>
+        <li><Link to="/authorization">Страница авторизации</Link></li>
+        <li><Link to="/registration">Страница регистрации</Link></li>
+        <li><Link to="/profile">Страница настройки пользователя</Link></li>
+        <li> <Link to="/chat">Страница чата</Link></li>
+        <li><Link to="/404">Страница 404</Link></li>
+        <li><Link to="/500">Страница 500</Link></li>
+      </ul>
+    </nav>
   );
 };

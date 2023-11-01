@@ -18,13 +18,13 @@ export const Form = () => {
           <Input disabled name="first_name" placeholder="Шелдон" label="Имя" />
           <Input
             disabled
-            name="last_name"
+            name="second_name"
             placeholder="Купер"
             label="Фамилия"
           />
           <Input
             disabled
-            name="chat_name"
+            name="display_name"
             placeholder="Маэстро"
             label="Имя в чате"
           />
